@@ -1,0 +1,2 @@
+# selskapssykebanditta
+Selskapssyke Banditta
