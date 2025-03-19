@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const songs = [
-        { filename: "Sælskapssyke Banditta Feat. MC Frokost - Alt Eller Ingenting.mp3", displayName: "Sælskapssyke Banditta Feat. MC Frokost - Alt Eller Ingenting" },
-        { filename: "Sælskapssyke Banditta - Væstkyst MC.mp3", displayName: "Sælskapssyke Banditta - Væstkyst MC" },
-        { filename: "Sælskapssyke Banditta - Rar Kåtsekk.mp3", displayName: "Sælskapssyke Banditta - Rar Kåtsekk" },
-        { filename: "Sælskapssyke Banditta - Kor Vi Kommer Fra.mp3", displayName: "Sælskapssyke Banditta - Kor Vi Kommer Fra" },
-        { filename: "Sælskapssyke Banditta - Bandittan.mp3", displayName: "Sælskapssyke Banditta - Bandittan" },
-        { filename: "Sælskapssyke Banditta - 6512.mp3", displayName: "Sælskapssyke Banditta - 6512" },
-        { filename: "Balliztic Feat Zubztance Og Gitarduden - Rennesteinspoesi.mp3", displayName: "Balliztic Feat Zubztance Og Gitarduden - Rennesteinspoesi" },
-        { filename: "Balliztic Feat MC Frokost - Ligg Lavt I Terrenget.mp3", displayName: "Balliztic Feat MC Frokost - Ligg Lavt I Terrenget" }
+        { filename: "track1.mp3", displayName: "Sælskapssyke Banditta Feat. MC Frokost - Alt Eller Ingenting" },
+        { filename: "track2.mp3", displayName: "Sælskapssyke Banditta - Væstkyst MC" },
+        { filename: "track3.mp3", displayName: "Sælskapssyke Banditta - Rar Kåtsekk" },
+        { filename: "track4.mp3", displayName: "Sælskapssyke Banditta - Kor Vi Kommer Fra" },
+        { filename: "track5.mp3", displayName: "Sælskapssyke Banditta - Bandittan" },
+        { filename: "track6.mp3", displayName: "Sælskapssyke Banditta - 6512" },
+        { filename: "track7.mp3", displayName: "Balliztic Feat Zubztance Og Gitarduden - Rennesteinspoesi" },
+        { filename: "track8.mp3", displayName: "Balliztic Feat MC Frokost - Ligg Lavt I Terrenget" }
     ];
 
     const playlist = document.getElementById('playlist');
@@ -16,9 +16,32 @@ document.addEventListener('DOMContentLoaded', function() {
     contextMenu.className = 'context-menu';
     document.body.appendChild(contextMenu);
 
-    function playSong(song) {
-        player.src = `mp3/${song}`;
-        player.play();
+    async function playSong(song) {
+        try {
+            player.src = `mp3/${song}`;
+            const playPromise = player.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log('Playback error:', error);
+                    // Hvis feilen er relatert til autoplay, prøv igjen ved neste brukerinteraksjon
+                    if (error.name === 'NotAllowedError') {
+                        const playButton = document.createElement('button');
+                        playButton.textContent = 'Klikk for å spille av';
+                        playButton.style.position = 'fixed';
+                        playButton.style.top = '10px';
+                        playButton.style.right = '10px';
+                        playButton.style.zIndex = '1000';
+                        playButton.onclick = () => {
+                            player.play();
+                            document.body.removeChild(playButton);
+                        };
+                        document.body.appendChild(playButton);
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Error playing song:', error);
+        }
     }
 
     songs.forEach((song, index) => {
@@ -72,8 +95,19 @@ document.addEventListener('DOMContentLoaded', function() {
         contextMenu.style.display = 'none';
     }
 
+    // Last inn første sang som kilde, men ikke start avspilling
     if (playlist.querySelector('li')) {
         const firstSong = songs[0].filename;
         player.src = `mp3/${firstSong}`;
     }
+
+    // Legg til en global klikk-handler for å aktivere lyd
+    document.addEventListener('click', function initAudio() {
+        player.play().then(() => {
+            player.pause(); // Pause umiddelbart
+            document.removeEventListener('click', initAudio);
+        }).catch(() => {
+            // Ignorer feil her, vi prøver bare å initialisere lyden
+        });
+    }, { once: true });
 });
