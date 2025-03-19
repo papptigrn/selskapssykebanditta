@@ -1,0 +1,106 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('kjartan.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.title {
+    font-family: 'Playwrite DK Uloopet', cursive;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.music-player {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#playlist {
+    list-style: none;
+    padding: 0;
+}
+
+#playlist li {
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+#playlist li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#playlist li.active {
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Custom context menu */
+.context-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.context-menu a {
+    display: block;
+    padding: 5px 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+.context-menu a:hover {
+    background: #eee;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 1px 0;
+    font-family: 'Roboto', Arial, sans-serif; 
+}
