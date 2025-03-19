@@ -21,7 +21,7 @@ En enkel og elegant musikkspiller for Sælskapssyke Banditta's låter.
 
 1. Klon repoet:
 ```bash
-git clone https://github.com/dittbrukernavn/selskapssykebanditta.git
+git clone https://github.com/papptigrn/selskapssykebanditta.git
 ```
 
 2. Åpne `index.html` i en nettleser
