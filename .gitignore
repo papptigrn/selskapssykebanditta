@@ -2,4 +2,20 @@
 node_modules/
 *.log
 .env
-.vscode/ 
+.vscode/
+
+# unrelated stuff that lives in this dir but doesn't belong in the repo
+arkiv/
+banditta.no
+malinsen.txt
+Game/brainstorm/
+skatt/
+spill/
+*.png
+
+# but keep the favicons (already tracked, listed for clarity)
+!android-chrome-192x192.png
+!android-chrome-512x512.png
+!apple-touch-icon.png
+!favicon-16x16.png
+!favicon-32x32.png
