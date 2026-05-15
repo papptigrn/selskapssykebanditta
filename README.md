@@ -1,38 +1,64 @@
 # Sælskapssyke Banditta
 
-En enkel og elegant musikkspiller for Sælskapssyke Banditta's låter.
+The official jukebox for SB and the Balliztic crew — straight outta **6512**, rep'n the **Væstkyst**.
+GOMA stand up. Brought to you by **MITTET FRUKT & TOBAKK**.
 
-## Funksjoner
+![SB · GOMA](logo.svg)
 
-- Spill av musikk direkte i nettleseren
-- Automatisk avspilling av neste sang
-- Last ned sanger via høyreklikk-meny
-- Responsivt design
-- Enkel og intuitiv brukergrensesnitt
+## What it does
 
-## Teknologier
+- Streams the SB catalog right in your browser — no install, no signup, no nonsense
+- Auto-rolls to the next track when one fades out
+- Right-click any joint to grab the mp3 for the road
+- Loops back to the top when the last track drops
+- Mobile-friendly — runs on whatever device you got
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-- HTML5 Audio API
+## Stack
 
-## Installasjon
+- HTML5 · CSS3 · vanilla JavaScript
+- HTML5 Audio API doin' the heavy lift
+- No frameworks, no build step, no dependencies
 
-1. Klon repoet:
+## Get it spinning
+
 ```bash
 git clone https://github.com/papptigrn/selskapssykebanditta.git
+cd selskapssykebanditta
+# pop index.html in your browser, that's it
 ```
 
-2. Åpne `index.html` i en nettleser
+## How to ride
 
-## Bruk
+- Click a track in the playlist to play
+- Right-click → **Download** to keep one for the road
+- Tracks roll one after the other; when the last one fades, the playlist starts over
 
-- Klikk på en sang i spillelisten for å spille den
-- Høyreklikk på en sang for å laste den ned
-- Sanger spilles automatisk i rekkefølge
-- Når siste sang er ferdig, starter spillelisten på nytt
+## The roster
 
-## Lisens
+**Sælskapssyke Banditta**
+- Alt Eller Ingenting *(feat. MC Frokost)*
+- Væstkyst MC
+- Rar Kåtsekk
+- Kor Vi Kommer Fra
+- Bandittan
+- 6512
 
-Dette prosjektet er lisensiert under MIT-lisensen. 
+**Balliztic**
+- Rennesteinspoesi *(feat. Zubztance & Gitarduden)*
+- Ligg Lavt I Terrenget *(feat. MC Frokost)*
+
+## Layout
+
+```
+SB/
+├── index.html      # the player
+├── styles.css      # styling
+├── scripts.js      # playlist + audio logic
+├── logo.svg        # the GOMA logo
+├── mp3/            # the tracks
+└── README.md       # you are here
+```
+
+## License
+
+MIT — take it, flip it, just don't bite the bars.
