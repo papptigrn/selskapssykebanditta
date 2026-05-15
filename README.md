@@ -1,13 +1,13 @@
 # Sælskapssyke Banditta
 
-The official jukebox for SB and the Balliztic crew — straight outta **6512**, rep'n the **Væstkyst**.
+The official jukebox for Bandittan — straight outta **6512**, rep'n the **Væstkystn**.
 GOMA stand up. Brought to you by **MITTET FRUKT & TOBAKK**.
 
-![SB · GOMA](logo.svg)
+![bandittan](logo.svg)
 
 ## What it does
 
-- Streams the SB catalog right in your browser — no install, no signup, no nonsense
+- Streams the SB catalog right in your browser — no install, no signup, no nonsense. Aight!
 - Auto-rolls to the next track when one fades out
 - Right-click any joint to grab the mp3 for the road
 - Loops back to the top when the last track drops
@@ -62,3 +62,4 @@ SB/
 ## License
 
 MIT — take it, flip it, just don't bite the bars.
+Check it out live @ [selskapssyke.banditta.no](https://selskapssyke.banditta.no)
